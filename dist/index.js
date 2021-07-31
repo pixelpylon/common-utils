@@ -3,7 +3,6 @@ const delay = require('./delay');
 const findRecord = require('./findRecord');
 const getDateObject = require('./getDateObject');
 const getStatusObject = require('./getStatusObject');
-const getTemplate = require('./getTemplate');
 const verboseErrorMessage = require('./verboseErrorMessage');
 
 module.exports = {
@@ -12,6 +11,5 @@ module.exports = {
   findRecord,
   getDateObject,
   getStatusObject,
-  getTemplate,
   verboseErrorMessage,
 };
