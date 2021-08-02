@@ -4,6 +4,7 @@ const findRecord = require('./findRecord');
 const getDateObject = require('./getDateObject');
 const getStatusObject = require('./getStatusObject');
 const verboseErrorMessage = require('./verboseErrorMessage');
+const ServiceError = require('./ServiceError');
 
 module.exports = {
   askQuestion,
@@ -12,4 +13,5 @@ module.exports = {
   getDateObject,
   getStatusObject,
   verboseErrorMessage,
+  ServiceError,
 };
