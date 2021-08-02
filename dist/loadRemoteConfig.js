@@ -17,6 +17,24 @@ function adaptValue (value, type) {
     }
 }
 
+function getValue (template, key) {
+    const parameter = template.parameters[key];
+    if (parameter === undefined) {
+        throw new Error(`Missing config property`);
+    }
+    return parameter.defaultValue.value;
+}
+
+function loadProperty (key, template, descriptor) {
+    try {
+        const type = descriptor[key];
+        const value = getValue(template, key);
+        return adaptValue(value, type);
+    } catch (error) {
+        throw new Error(`Property '${key}': ${error.message}`);
+    }
+}
+
 async function loadRemoteConfig(config, descriptor) {
     const template = await config.getTemplate();
     if (!template) throw new Error("Error fetching remote config template");
@@ -25,8 +43,7 @@ async function loadRemoteConfig(config, descriptor) {
 
     try {
         for (const key of Object.keys(descriptor)) {
-            const type = descriptor[key];
-            result[key] = adaptValue(template.parameters[key].defaultValue.value, type);
+            result[key] = loadProperty(key, template, descriptor);
         }
         return result;
     } catch (error) {
