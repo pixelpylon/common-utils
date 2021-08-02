@@ -5,6 +5,7 @@ const getDateObject = require('./getDateObject');
 const getStatusObject = require('./getStatusObject');
 const verboseErrorMessage = require('./verboseErrorMessage');
 const ServiceError = require('./ServiceError');
+const {loadRemoteConfig, CONFIG_PROPERTY_TYPES} = require('./loadRemoteConfig');
 
 module.exports = {
   askQuestion,
@@ -14,4 +15,6 @@ module.exports = {
   getStatusObject,
   verboseErrorMessage,
   ServiceError,
+  loadRemoteConfig,
+  CONFIG_PROPERTY_TYPES,
 };
