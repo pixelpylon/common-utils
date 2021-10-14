@@ -1,21 +1,20 @@
 const getStatusObject = require("./getStatusObject");
 const {DocumentAccessor} = require("./index");
 
-class StatusManager {
-  constructor(field, statuses) {
-    ['DONE', 'ERROR', 'PENDING'].forEach((statusName) => {
-      if (!statuses[statusName]) {
-        throw new Error(`Status '${statusName}' was not passed`);
-      }
-    });
+const PROCESSING_STATUSES = {
+  PENDING: 'pending',
+  DONE: 'done',
+  ERROR: 'error',
+};
 
-    this.STATUSES = statuses;
+class StatusManager {
+  constructor(field) {
     this.field = field
   }
 
   markAsDone (documentRef, additionalData = {}) {
     const updateData = {
-      [this.field]: getStatusObject(this.STATUSES.DONE),
+      [this.field]: getStatusObject(PROCESSING_STATUSES.DONE),
       ...additionalData,
     };
 
@@ -25,7 +24,7 @@ class StatusManager {
 
   markAsFailed (documentRef, error, additionalData = {}) {
     const updateData = {
-      [this.field]: getStatusObject(this.STATUSES.ERROR, error),
+      [this.field]: getStatusObject(PROCESSING_STATUSES.ERROR, error),
       ...additionalData,
     };
 
@@ -35,11 +34,13 @@ class StatusManager {
 
   async findUnprocessed (collectionRef) {
     const result = await collectionRef
-      .where(`${this.field}.status`, '==', this.STATUSES.PENDING)
+      .where(`${this.field}.status`, '==', PROCESSING_STATUSES.PENDING)
       .orderBy(`${this.field}.timestamp`, 'asc')
       .get();
     return DocumentAccessor.list(result);
   };
 }
+
+StatusManager.PROCESSING_STATUSES = PROCESSING_STATUSES;
 
 module.exports = StatusManager;
