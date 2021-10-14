@@ -11,6 +11,9 @@ const Transaction = require('./Transaction');
 const DocumentAccessor = require('./DocumentAccessor');
 const StatusManager = require('./StatusManager');
 const parsePhone = require('./parsePhone');
+const arrayze = require('./arrayze');
+const isCorrectEmailAddress = require('./isCorrectEmailAddress');
+const isInvalidEmailAddress = require('./isInvalidEmailAddress');
 const {loadRemoteConfig, CONFIG_PROPERTY_TYPES} = require('./loadRemoteConfig');
 
 module.exports = {
@@ -29,4 +32,7 @@ module.exports = {
   CONFIG_PROPERTY_TYPES,
   isDeniedDomain,
   parsePhone,
+  arrayze,
+  isCorrectEmailAddress,
+  isInvalidEmailAddress,
 };
