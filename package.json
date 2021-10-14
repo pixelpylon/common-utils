@@ -1,6 +1,6 @@
 {
   "name": "common-utils",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Common Utils",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "engines": {
     "node": "14"
   },
-  "author": "Kosolapov Ivan <polzuka@gmail.com>",
+  "author": "Ivan Kosolapov <polzuka@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.21"

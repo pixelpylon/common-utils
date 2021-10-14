@@ -6,6 +6,8 @@ const getStatusObject = require('./getStatusObject');
 const verboseErrorMessage = require('./verboseErrorMessage');
 const isDeniedDomain = require('./isDeniedDomain');
 const ServiceError = require('./ServiceError');
+const Repository = require('./Repository');
+const Transaction = require('./Transaction');
 const parsePhone = require('./parsePhone');
 const {loadRemoteConfig, CONFIG_PROPERTY_TYPES} = require('./loadRemoteConfig');
 
@@ -17,6 +19,8 @@ module.exports = {
   getStatusObject,
   verboseErrorMessage,
   ServiceError,
+  Repository,
+  Transaction,
   loadRemoteConfig,
   CONFIG_PROPERTY_TYPES,
   isDeniedDomain,
