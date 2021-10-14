@@ -8,6 +8,8 @@ const isDeniedDomain = require('./isDeniedDomain');
 const ServiceError = require('./ServiceError');
 const Repository = require('./Repository');
 const Transaction = require('./Transaction');
+const DocumentAccessor = require('./DocumentAccessor');
+const StatusManager = require('./StatusManager');
 const parsePhone = require('./parsePhone');
 const {loadRemoteConfig, CONFIG_PROPERTY_TYPES} = require('./loadRemoteConfig');
 
@@ -21,6 +23,8 @@ module.exports = {
   ServiceError,
   Repository,
   Transaction,
+  DocumentAccessor,
+  StatusManager,
   loadRemoteConfig,
   CONFIG_PROPERTY_TYPES,
   isDeniedDomain,
