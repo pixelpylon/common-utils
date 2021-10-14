@@ -2,7 +2,7 @@ const isDeniedDomain = require("./isDeniedDomain");
 const isCorrectEmailAddress = require("./isCorrectEmailAddress");
 
 const isInvalidEmailAddress = (email, deniedDomains) => {
-  if (isCorrectEmailAddress(email)) {
+  if (!isCorrectEmailAddress(email)) {
     return `Incorrect email format '${email}'`;
   }
 
