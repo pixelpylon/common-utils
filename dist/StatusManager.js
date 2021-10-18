@@ -1,5 +1,5 @@
 const getStatusObject = require("./getStatusObject");
-const {DocumentAccessor} = require("./index");
+const DocumentAccessor = require("./DocumentAccessor");
 
 const PROCESSING_STATUSES = {
   PENDING: 'pending',
