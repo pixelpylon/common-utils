@@ -1,5 +1,5 @@
 const parsePhone = (phoneSource) => {
-  const result = phoneSource.match(/^\w+\+[\s\d()-]+$/);
+  const result = phoneSource.match(/^\w*\+[\s\d()-]+$/);
 
   if (!result) {
     return null;
