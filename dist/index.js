@@ -12,6 +12,7 @@ const DocumentAccessor = require('./DocumentAccessor');
 const StatusManager = require('./StatusManager');
 const parsePhone = require('./parsePhone');
 const arrayze = require('./arrayze');
+const lazy = require('./lazy');
 const isCorrectEmailAddress = require('./isCorrectEmailAddress');
 const isInvalidEmailAddress = require('./isInvalidEmailAddress');
 const {loadRemoteConfig, CONFIG_PROPERTY_TYPES} = require('./loadRemoteConfig');
@@ -33,6 +34,7 @@ module.exports = {
   isDeniedDomain,
   parsePhone,
   arrayze,
+  lazy,
   isCorrectEmailAddress,
   isInvalidEmailAddress,
 };
