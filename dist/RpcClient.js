@@ -17,7 +17,7 @@ class RpcClient {
   async call (method, params) {
     try {
       const {data} = await this.instance.post(method, params);
-      return data;
+      return {result: data};
     } catch (error) {
       if (axios.isAxiosError(error)) {
         return {error: error.response.data || 'Unknown error'};
