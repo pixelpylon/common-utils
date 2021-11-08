@@ -12,6 +12,7 @@
   "author": "Ivan Kosolapov <polzuka@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "lodash": "^4.17.21"
   }
 }
