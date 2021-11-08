@@ -4,13 +4,13 @@ class RpcClient {
   constructor (url) {
     const parsedUrl = new URL(url);
 
-    const token = Buffer
+    const payload = Buffer
       .from(`${parsedUrl.username}:${decodeURIComponent(parsedUrl.password)}`)
       .toString('base64');
 
     this.instance = axios.create({
       baseURL: `${parsedUrl.protocol}//${parsedUrl.host}`,
-      headers: {Authorization: `Basic ${token}`}
+      headers: {Authorization: `Basic ${payload}`}
     });
   }
 

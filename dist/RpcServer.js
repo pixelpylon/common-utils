@@ -18,7 +18,8 @@ class RpcServer {
 
   async _authorize (clients, authorization) {
     try {
-      const [name, token] = new Buffer(authorization, 'base64').toString('utf-8').split(':');
+      const payload = authorization.replace('Basic ', '');
+      const [name, token] = new Buffer(payload, 'base64').toString('utf-8').split(':');
       for (const client of clients) {
         if (client.name === name && client.token === token) {
           return client;
