@@ -6,6 +6,7 @@ const getStatusObject = require('./getStatusObject');
 const verboseErrorMessage = require('./verboseErrorMessage');
 const isDeniedDomain = require('./isDeniedDomain');
 const ServiceError = require('./ServiceError');
+const RestifiedError = require('./RestifiedError');
 const Repository = require('./Repository');
 const Transaction = require('./Transaction');
 const DocumentAccessor = require('./DocumentAccessor');
@@ -16,6 +17,8 @@ const lazy = require('./lazy');
 const isCorrectEmailAddress = require('./isCorrectEmailAddress');
 const isInvalidEmailAddress = require('./isInvalidEmailAddress');
 const {loadRemoteConfig, CONFIG_PROPERTY_TYPES} = require('./loadRemoteConfig');
+const RpcClient = require('./RpcClient');
+const RpcServer = require('./RpcServer');
 
 module.exports = {
   askQuestion,
@@ -25,6 +28,7 @@ module.exports = {
   getStatusObject,
   verboseErrorMessage,
   ServiceError,
+  RestifiedError,
   Repository,
   Transaction,
   DocumentAccessor,
@@ -37,4 +41,6 @@ module.exports = {
   lazy,
   isCorrectEmailAddress,
   isInvalidEmailAddress,
+  RpcServer,
+  RpcClient,
 };
