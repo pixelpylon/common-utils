@@ -16,12 +16,12 @@ class RpcServer {
     }
   }
 
-  async _authorize (credentials, authorization) {
+  async _authorize (clients, authorization) {
     try {
       const [name, token] = new Buffer(authorization, 'base64').toString('utf-8').split(':');
-      for (const record of credentials) {
-        if (record.name === name && record.token === token) {
-          return record;
+      for (const client of clients) {
+        if (client.name === name && client.token === token) {
+          return client;
         }
       }
       throw new RestifiedError('Unauthorized', 403);
@@ -47,8 +47,8 @@ class RpcServer {
   handler (executor) {
     return async (request, response) => {
       try {
-        const {context, credentials} = await this._initialize();
-        const client = await this._authorize(credentials, request.headers.authorization);
+        const {context, clients} = await this._initialize();
+        const client = await this._authorize(clients, request.headers.authorization);
         const result = await this._execute(executor, client, context, request.body);
         return response.json(result);
       } catch (error) {
