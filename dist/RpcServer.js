@@ -64,3 +64,5 @@ class RpcServer {
 RpcServer.new = () => {
   return new RpcServer();
 }
+
+module.exports = RpcServer;
