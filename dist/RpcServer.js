@@ -45,11 +45,12 @@ class RpcServer {
   }
 
   handler (executor) {
+    const self = this;
     return async (request, response) => {
       try {
-        const {context, clients} = await this._initialize();
-        const client = await this._authorize(clients, request.headers.authorization);
-        const result = await this._execute(executor, client, context, request.body);
+        const {context, clients} = await self._initialize();
+        const client = await self._authorize(clients, request.headers.authorization);
+        const result = await self._execute(executor, client, context, request.body);
         return response.json(result);
       } catch (error) {
         console.error(error);
