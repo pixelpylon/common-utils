@@ -62,8 +62,8 @@ class RpcServer {
   }
 }
 
-RpcServer.new = () => {
-  return new RpcServer();
+RpcServer.new = (initializer) => {
+  return new RpcServer(initializer);
 }
 
 module.exports = RpcServer;
