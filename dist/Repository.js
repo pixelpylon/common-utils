@@ -1,3 +1,5 @@
+const DocumentAccessor = require("./DocumentAccessor");
+
 class Repository {
   constructor(db, collectionName) {
     this.db = db;
@@ -18,19 +20,19 @@ class Repository {
 
   async one(id) {
     const result = await this.ref(id).get();
-    return result.exists ? result.data() : null;
+    return DocumentAccessor.one(result);
   }
 
   async list(getQuery) {
     const query = getQuery(this.collectionRef);
     const result = await query.get();
-    return result.empty ? [] : result.docs.map((doc) => doc.data());
+    return DocumentAccessor.list(result);
   }
 
   async first(getQuery) {
     const query = getQuery(this.collectionRef);
     const result = await query.get();
-    return result.empty ? null : result.docs[0].data();
+    return DocumentAccessor.first(result);
   }
 }
 
