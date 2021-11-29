@@ -1,6 +1,6 @@
 {
   "name": "common-utils",
-  "version": "1.4.13",
+  "version": "1.4.14",
   "description": "Common Utils",
   "main": "dist/index.js",
   "scripts": {
