@@ -19,6 +19,8 @@ const isInvalidEmailAddress = require('./isInvalidEmailAddress');
 const {loadRemoteConfig, CONFIG_PROPERTY_TYPES} = require('./loadRemoteConfig');
 const RpcClient = require('./RpcClient');
 const RpcServer = require('./RpcServer');
+const AxiosApiClient = require('./AxiosApiClient');
+const ApiError = require('./ApiError');
 
 module.exports = {
   askQuestion,
@@ -43,4 +45,6 @@ module.exports = {
   isInvalidEmailAddress,
   RpcServer,
   RpcClient,
+  AxiosApiClient,
+  ApiError,
 };
