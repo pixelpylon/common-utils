@@ -3,6 +3,7 @@
   "version": "1.4.15",
   "description": "Common Utils",
   "main": "dist/index.js",
+  "typings": "dist/declares/main.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
