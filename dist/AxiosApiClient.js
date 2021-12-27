@@ -1,10 +1,10 @@
-const ApiError = require("./ApiError");
+const AxiosApiError = require("./AxiosApiError")
 
 const makeApiRequest = async (execute) => {
     try {
         return await execute()
     } catch (error) {
-        throw new ApiError(error)
+        throw new AxiosApiError(error)
     }
 }
 
@@ -19,4 +19,4 @@ const AxiosApiClient = (axiosInstance) => {
     }
 }
 
-module.exports = AxiosApiClient;
+module.exports = AxiosApiClient
