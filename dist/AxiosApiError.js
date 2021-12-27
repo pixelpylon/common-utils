@@ -1,5 +1,5 @@
 const {get, upperCase} = require("lodash")
-const {ServiceError} = require("./index")
+const ServiceError = require("./ServiceError")
 
 const formatErrorMessage = (method, path, requestData, status, responseData) => {
     return [
