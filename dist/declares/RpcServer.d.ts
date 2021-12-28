@@ -5,18 +5,18 @@ interface IRpcClient {
 
 interface IInitializerFuncResult {
     clients: IRpcClient[]
-    context: any
+    context: object
 }
 
 interface IExecutorParams {
     client: IRpcClient
-    context: any
-    params: any
+    context: object
+    params: object
 }
 
 type InitializerFunc = () => Promise<IInitializerFuncResult>
-type ExecutorFunc = ({client, context, params}: IExecutorParams) => Promise<any>
-type HandlerFuncResult = (request: any, response: any) => Promise<void>
+type ExecutorFunc = ({client, context, params}: IExecutorParams) => Promise<object>
+type HandlerFuncResult = (request: object, response: object) => Promise<void>
 
 export declare class RpcServer {
     constructor (initializer: InitializerFunc)
