@@ -1,3 +1,5 @@
 export {ServiceError} from "./ServiceError"
 export {AxiosApiError} from "./AxiosApiError"
 export {IAxiosApiClient, AxiosApiClient} from "./AxiosApiClient"
+export {RpcServer} from "./RpcServer"
+export {RpcClient} from "./RpcClient"
