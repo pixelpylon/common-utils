@@ -1,7 +1,8 @@
-class RestifiedError extends Error {
+const ServiceError = require("./ServiceError");
+
+class RestifiedError extends ServiceError {
   constructor(message, code = 500) {
-    super(message);
-    this.code = code;
+    super(message, code);
   }
 }
 
