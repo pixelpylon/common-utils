@@ -1,4 +1,3 @@
-const askQuestion = require('./askQuestion');
 const delay = require('./delay');
 const findRecord = require('./findRecord');
 const getDateObject = require('./getDateObject');
@@ -23,7 +22,6 @@ const AxiosApiClient = require('./AxiosApiClient');
 const AxiosApiError = require('./AxiosApiError');
 
 module.exports = {
-  askQuestion,
   delay,
   findRecord,
   getDateObject,

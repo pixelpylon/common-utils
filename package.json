@@ -1,6 +1,6 @@
 {
   "name": "common-utils",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Common Utils",
   "main": "dist/index.js",
   "typings": "dist/declares/main.d.ts",
@@ -8,13 +8,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "14"
+    "node": ">=12"
   },
   "author": "Ivan Kosolapov <polzuka@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
-    "lodash": "^4.17.21",
-    "readline": "^1.3.0"
+    "lodash": "^4.17.21"
   }
 }
