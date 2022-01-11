@@ -20,6 +20,10 @@ const RpcClient = require('./RpcClient');
 const RpcServer = require('./RpcServer');
 const AxiosApiClient = require('./AxiosApiClient');
 const AxiosApiError = require('./AxiosApiError');
+const {
+  parseDateRanges,
+  isDateInDateRanges,
+} = require('./parseDateRanges');
 
 module.exports = {
   delay,
@@ -45,4 +49,6 @@ module.exports = {
   RpcClient,
   AxiosApiClient,
   AxiosApiError,
+  parseDateRanges,
+  isDateInDateRanges,
 };
