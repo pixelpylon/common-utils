@@ -2,6 +2,7 @@ const CONFIG_PROPERTY_TYPES = {
     STRING: 'string',
     INT: 'int',
     JSON: 'json',
+    BOOL: 'bool',
 };
 
 function adaptValue (value, type) {
@@ -12,6 +13,8 @@ function adaptValue (value, type) {
             return value;
         case CONFIG_PROPERTY_TYPES.JSON:
             return JSON.parse(value);
+        case CONFIG_PROPERTY_TYPES.BOOL:
+            return Boolean(value);
         default:
             throw new Error(`Unknown config property type '${type}'`);
     }
