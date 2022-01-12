@@ -13,6 +13,8 @@ const parseDateRange = (source) => {
     if (!date.isValid()) {
       throw new Error(`Incorrect date '${part}'`)
     }
+
+    return date
   })
 
   const [start, end] = dates
