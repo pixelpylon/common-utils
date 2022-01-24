@@ -4,4 +4,5 @@ export {RestifiedError} from "./RestifiedError"
 export {IAxiosApiClient, AxiosApiClient} from "./AxiosApiClient"
 export {RpcServer} from "./RpcServer"
 export {RpcClient} from "./RpcClient"
+export * from "./Repository"
 export * from './loadRemoteConfig'
