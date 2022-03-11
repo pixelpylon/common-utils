@@ -7,4 +7,11 @@ export declare const CONFIG_PROPERTY_TYPES: {
     readonly BOOL: 'bool'
 }
 
-export declare function loadRemoteConfig(config: object, descriptor: {[key: string]: CONFIG_PROPERTY_TYPES_UNION})
+export interface IRemoteConfigTemplate {
+    [key: string]: any
+}
+
+export declare function loadRemoteConfig(
+    config: object,
+    descriptor: {[key: string]: CONFIG_PROPERTY_TYPES_UNION}
+): Promise<IRemoteConfigTemplate>
