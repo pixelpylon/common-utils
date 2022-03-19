@@ -13,10 +13,10 @@ const formatErrorMessage = (method, path, requestData, status, responseData, ori
 class AxiosApiError extends ServiceError {
     constructor(error) {
         super({})
-        const method = get(error, 'config.method', 'UNKNOWN')
-        const path = get(error, 'config.url', 'UNKNOWN')
+        const method = get(error, 'config.method', '[unknown method]')
+        const path = get(error, 'config.url', '[unknown path]')
         const requestData = get(error, 'config.data')
-        const status = get(error, 'response.status', 'UNKNOWN')
+        const status = get(error, 'response.status', '[unknown status]')
         const responseData = get(error, 'response.data')
         this.message = formatErrorMessage(method, path, requestData, status, responseData, error.message)
         this.data = responseData
