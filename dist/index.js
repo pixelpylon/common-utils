@@ -20,6 +20,9 @@ const RpcClient = require('./RpcClient');
 const RpcServer = require('./RpcServer');
 const AxiosApiClient = require('./AxiosApiClient');
 const AxiosApiError = require('./AxiosApiError');
+const validate = require('./validate');
+const validateInput = require('./validateInput');
+const ValidationError = require('./ValidationError');
 const {
   parseDateRanges,
   isDateInDateRanges,
@@ -51,4 +54,7 @@ module.exports = {
   AxiosApiError,
   parseDateRanges,
   isDateInDateRanges,
+  validate,
+  validateInput,
+  ValidationError,
 };
