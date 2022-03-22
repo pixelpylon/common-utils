@@ -71,6 +71,22 @@ function isArray(path, value) {
     }
 }
 
+function isEmail(path, value) {
+    isString(path, value)
+    if (!value.match(/^[^@]+@([^@.].)+[^@.]$/)) {
+        throw new ValidationError(path, value, 'is not an email')
+    }
+}
+
+function isUrl(path, value) {
+    isString(path, value)
+    try {
+        new URL(value)
+    } catch (error) {
+        throw new ValidationError(path, value, 'is not an url')
+    }
+}
+
 function items(validator) {
     if (typeof validator !== 'function') {
         throw new Error(`Incorrect validator '${validator}'`)
@@ -138,10 +154,13 @@ module.exports = {
     isFormat,
     valid,
     isString,
+    isIntString,
     isInt,
     isArray,
     isObject,
     isDefined,
     isFilled,
     isUuid,
+    isEmail,
+    isUrl,
 }
