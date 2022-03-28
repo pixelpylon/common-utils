@@ -19,4 +19,4 @@ export declare const isFilled: Validator<string>
 export declare const isObject: Validator<Object>
 export declare const isList: Validator
 export declare const isValid: Validator
-export declare const isIn: Validator
+export declare function isIn(list: any[]): Validator
