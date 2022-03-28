@@ -17,6 +17,6 @@ export declare const isUrl: Validator<string>
 export declare const isDefined: Validator
 export declare const isFilled: Validator<string>
 export declare const isObject: Validator<Object>
-export declare const isList: Validator
+export declare const isArray: Validator
 export declare const isValid: Validator
 export declare function isIn(list: any[]): Validator
