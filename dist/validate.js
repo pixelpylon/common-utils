@@ -87,6 +87,17 @@ function isUrl(path, value) {
     }
 }
 
+function isIn(list) {
+    if (!Array.isArray(list)) {
+        throw new Error(`Incorrect list '${JSON.stringify(list)}'`)
+    }
+    return (path, value) => {
+        if (!list.includes(value)) {
+            throw new ValidationError(path, value, 'list does not contain value')
+        }
+    }
+}
+
 function items(validator) {
     if (typeof validator !== 'function') {
         throw new Error(`Incorrect validator '${validator}'`)
@@ -163,4 +174,5 @@ module.exports = {
     isUuid,
     isEmail,
     isUrl,
+    isIn,
 }
