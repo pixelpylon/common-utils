@@ -8,6 +8,18 @@ function every(...validators) {
     }
 }
 
+function some(...validators) {
+    return (path, value) => {
+        for (const validator of validators) {
+            try {
+                validator(path, value)
+                return
+            } catch (error) {}
+        }
+        throw ValidationError(path, value, 'is failed all validators')
+    }
+}
+
 function valid() {
 }
 
@@ -47,8 +59,14 @@ function isUuid(path, value) {
 }
 
 function isDefined(path, value) {
-    if (isDefined === null || value === undefined) {
+    if (value === null || value === undefined) {
         throw new ValidationError(path, value, 'is not defined')
+    }
+}
+
+function isUndefined(path, value) {
+    if (value !== undefined) {
+        throw new ValidationError(path, value, 'is not undefined')
     }
 }
 
@@ -56,6 +74,13 @@ function isFilled(path, value) {
     isString(path, value)
     if (value.length === 0) {
         throw new ValidationError(path, value, 'is not filled')
+    }
+}
+
+function isBlank(path, value) {
+    isString(path, value)
+    if (value.length !== 0) {
+        throw new ValidationError(path, value, 'is not blank')
     }
 }
 
@@ -158,6 +183,7 @@ function values(validator) {
 
 module.exports = {
     every,
+    some,
     props,
     values,
     keys,
@@ -170,7 +196,9 @@ module.exports = {
     isArray,
     isObject,
     isDefined,
+    isUndefined,
     isFilled,
+    isBlank,
     isUuid,
     isEmail,
     isUrl,
