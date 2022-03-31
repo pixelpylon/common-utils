@@ -98,7 +98,7 @@ function isArray(path, value) {
 
 function isEmail(path, value) {
     isString(path, value)
-    if (!value.match(/^[^@]+@([^@.].)+[^@.]$/)) {
+    if (!value.match(/^[^@]+@([^@.]+\.)+[^@.]+$/)) {
         throw new ValidationError(path, value, 'is not an email')
     }
 }
