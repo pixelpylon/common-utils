@@ -9,6 +9,7 @@ export declare function keys<T>(validator: Validator): Validator<T>
 export declare function values<T>(validator: Validator): Validator<T>
 export declare function items<T>(validator: Validator): Validator<T>
 export declare const isInt: Validator<number>
+export declare const isBoolean: Validator<boolean>
 export declare const isIntString: Validator<string>
 export declare const isString: Validator<string>
 export declare function isFormat(format: RegExp): Validator<string>

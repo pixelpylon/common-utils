@@ -51,6 +51,12 @@ function isInt(path, value) {
     }
 }
 
+function isBoolean(path, value) {
+    if (typeof value !== 'boolean') {
+        throw new ValidationError(path, value, 'is not a boolean')
+    }
+}
+
 function isUuid(path, value) {
     isString(path, value)
     if (!value.match(/^.{8}-.{4}-.{4}-.{4}-.{12}$/)) {
@@ -193,6 +199,7 @@ module.exports = {
     isString,
     isIntString,
     isInt,
+    isBoolean,
     isArray,
     isObject,
     isDefined,
