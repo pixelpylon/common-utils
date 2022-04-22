@@ -76,6 +76,12 @@ function isUndefined(path, value) {
     }
 }
 
+function isNull(path, value) {
+    if (value !== null) {
+        throw new ValidationError(path, value, 'is not null')
+    }
+}
+
 function isFilled(path, value) {
     isString(path, value)
     if (value.length === 0) {
@@ -204,6 +210,7 @@ module.exports = {
     isObject,
     isDefined,
     isUndefined,
+    isNull,
     isFilled,
     isBlank,
     isUuid,

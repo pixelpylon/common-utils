@@ -18,6 +18,7 @@ export declare const isEmail: Validator<string>
 export declare const isUrl: Validator<string>
 export declare const isDefined: Validator
 export declare const isUndefined: Validator
+export declare const isNull: Validator
 export declare const isFilled: Validator<string>
 export declare const isBlank: Validator<string>
 export declare const isObject: Validator<Object>
