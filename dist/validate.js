@@ -16,7 +16,7 @@ function some(...validators) {
                 return
             } catch (error) {}
         }
-        throw ValidationError(path, value, 'is failed all validators')
+        throw new ValidationError(path, value, 'is failed all validators')
     }
 }
 
