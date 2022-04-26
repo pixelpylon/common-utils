@@ -1,4 +1,4 @@
-export abstract class RequestHandler<TRequest, TResponse, TContext, TInput, TResult, TError> {
+export abstract class AbstractRequestHandler<TRequest, TResponse, TContext, TInput, TResult, TError> {
   private _context?: TContext
 
   protected constructor(
