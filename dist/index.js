@@ -27,6 +27,10 @@ const {
   parseDateRanges,
   isDateInDateRanges,
 } = require('./parseDateRanges');
+const {
+  AbstractRequestHandler,
+  handleRequest,
+} = require('./requestHandling')
 
 module.exports = {
   delay,
@@ -57,4 +61,6 @@ module.exports = {
   validate,
   validateInput,
   ValidationError,
+  AbstractRequestHandler,
+  handleRequest,
 };
