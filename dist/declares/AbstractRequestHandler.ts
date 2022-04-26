@@ -1,7 +1,8 @@
 export abstract class AbstractRequestHandler<TRequest, TResponse, TContext, TInput, TResult, TError> {
   private _context?: TContext
 
-  protected constructor(
+  // noinspection TypeScriptAbstractClassConstructorCanBeMadeProtected
+  public constructor(
         protected readonly request: TRequest,
         protected readonly response: TResponse,
   ) {}
