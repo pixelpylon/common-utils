@@ -1,5 +1,7 @@
 export abstract class AbstractRequestHandler<TRequest, TResponse, TContext, TInput, TResult, TError> {
   private _context?: TContext
+  protected request: TRequest
+  protected response: TResponse
 
   public constructor(request: TRequest, response: TResponse)
 
