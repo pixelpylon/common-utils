@@ -25,3 +25,4 @@ export declare const isObject: Validator<Object>
 export declare const isArray: Validator
 export declare const isValid: Validator
 export declare function isIn(list: any[]): Validator
+export declare function optional<T>(validator: Validator): Validator<T>

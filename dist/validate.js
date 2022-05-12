@@ -135,6 +135,14 @@ function isIn(list) {
     }
 }
 
+function optional(validator) {
+    if (typeof validator !== 'function') {
+        throw new Error(`Incorrect validator '${validator}'`)
+    }
+
+    return some(isUndefined, validator)
+}
+
 function items(validator) {
     if (typeof validator !== 'function') {
         throw new Error(`Incorrect validator '${validator}'`)
@@ -202,6 +210,7 @@ module.exports = {
     items,
     isFormat,
     valid,
+    optional,
     isString,
     isIntString,
     isInt,
