@@ -11,3 +11,4 @@ export * from "./findRecord"
 export * from "./Repository"
 export * from './loadRemoteConfig'
 export * from './validateInput'
+export * from './getCurrencySymbol'

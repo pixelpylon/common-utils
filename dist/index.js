@@ -23,6 +23,7 @@ const AxiosApiError = require('./AxiosApiError');
 const validate = require('./validate');
 const validateInput = require('./validateInput');
 const ValidationError = require('./ValidationError');
+const getCurrencySymbol = require('./getCurrencySymbol');
 const {
   parseDateRanges,
   isDateInDateRanges,
@@ -63,4 +64,5 @@ module.exports = {
   ValidationError,
   AbstractRequestHandler,
   handleRequest,
+  getCurrencySymbol,
 };
