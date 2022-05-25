@@ -1,4 +1,5 @@
 const axios = require("axios");
+const AxiosApiError = require("./AxiosApiError");
 
 class RpcClient {
   constructor (url) {
@@ -14,16 +15,28 @@ class RpcClient {
     });
   }
 
-  async call (method, params) {
+  async safeCall (method, params) {
     try {
       const {data} = await this.instance.post(method, params);
       return {result: data};
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        return {error: error.response.data || 'Unknown error'};
+        return {error: new AxiosApiError(error)};
       }
-      console.error(error);
+
       return {error};
+    }
+  }
+
+  async unsafeCall (method, params) {
+    try {
+      return await this.instance.post(method, params);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        throw new AxiosApiError(error);
+      }
+
+      throw error;
     }
   }
 }
