@@ -1,4 +1,4 @@
-import delay from "./delay";
+const delay = require("./delay");
 
 const retry = async (action, options) => {
     const {
