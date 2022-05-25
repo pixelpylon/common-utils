@@ -30,7 +30,8 @@ class RpcClient {
 
   async unsafeCall (method, params) {
     try {
-      return await this.instance.post(method, params);
+      const {data} = await this.instance.post(method, params);
+      return data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         throw new AxiosApiError(error);
