@@ -5,8 +5,10 @@ const retry = async (action, options) => {
         allowRetry = () => true,
         maxAttempts = 3,
         delayMs = 200,
-    } = options
-    let attempt = 0
+    } = options || {};
+
+    let attempt = 0;
+
     while (true) {
         attempt += 1;
         try {

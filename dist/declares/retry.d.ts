@@ -4,4 +4,4 @@ interface IOptions {
   delayMs?: number
 }
 
-export declare function retry<T>(action: () => Promise<T>, options:IOptions): Promise<T>
+export declare function retry<T>(action: () => Promise<T>, options?: IOptions): Promise<T>
