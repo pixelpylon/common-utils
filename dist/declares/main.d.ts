@@ -8,6 +8,7 @@ export {RpcClient} from "./RpcClient"
 export {AbstractRequestHandler, handleRequest} from "./requestHandling"
 export * as validate from "./validate"
 export * from "./findRecord"
+export * from "./retry"
 export * from "./Repository"
 export * from './loadRemoteConfig'
 export * from './validateInput'

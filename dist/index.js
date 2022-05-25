@@ -13,6 +13,7 @@ const StatusManager = require('./StatusManager');
 const parsePhone = require('./parsePhone');
 const arrayze = require('./arrayze');
 const lazy = require('./lazy');
+const retry = require('./retry');
 const isCorrectEmailAddress = require('./isCorrectEmailAddress');
 const isInvalidEmailAddress = require('./isInvalidEmailAddress');
 const {loadRemoteConfig, CONFIG_PROPERTY_TYPES} = require('./loadRemoteConfig');
@@ -65,4 +66,5 @@ module.exports = {
   AbstractRequestHandler,
   handleRequest,
   getCurrencySymbol,
+  retry,
 };
