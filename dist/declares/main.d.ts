@@ -9,6 +9,7 @@ export {AbstractRequestHandler, handleRequest} from "./requestHandling"
 export * as validate from "./validate"
 export * from "./findRecord"
 export * from "./retry"
+export * from "./delay"
 export * from "./Repository"
 export * from './loadRemoteConfig'
 export * from './validateInput'
