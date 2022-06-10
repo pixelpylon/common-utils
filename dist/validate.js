@@ -97,7 +97,7 @@ function isBlank(path, value) {
 }
 
 function isObject(path, value) {
-    if (typeof value !== "object" || value.constructor.name !== "Object") {
+    if (typeof value !== "object" && value.constructor.name !== "Object") {
         throw new ValidationError(path, value, 'is not an object')
     }
 }
