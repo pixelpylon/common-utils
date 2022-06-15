@@ -18,8 +18,8 @@ type InitializerFunc<Request, Context> = (request: Request) => Promise<Initializ
 type ExecutorFunc<Context, Params, Result> = ({client, context, params}: ExecutorParams<Context, Params>) => Promise<Result>
 type HandlerFuncResult<Request, Response> = (request: Request, response: Response) => Promise<void>
 
-export declare class RpcServer<Request, Response, Context, Params, Result> {
+export declare class RpcServer<Request, Response, Context> {
     constructor (initializer: InitializerFunc<Request, Context>)
-    handler (executor: ExecutorFunc<Context, Params, Result>): HandlerFuncResult<Request, Response>
-    static new<Request, Response, Context, Params, Result>(initializer: InitializerFunc<Request, Context>): RpcServer<Request, Response, Context, Params, Result>
+    handler<Params, Result> (executor: ExecutorFunc<Context, Params, Result>): HandlerFuncResult<Request, Response>
+    static new<Request, Response, Context>(initializer: InitializerFunc<Request, Context>): RpcServer<Request, Response, Context>
 }
