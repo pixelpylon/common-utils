@@ -1,25 +1,25 @@
-interface IRpcClient {
+type RpcClient = {
     name: string
     token: string
 }
 
-interface IInitializerFuncResult {
-    clients: IRpcClient[]
-    context: object
+type InitializerFuncResult<Context> = {
+    clients: RpcClient[]
+    context: Context
 }
 
-interface IExecutorParams {
-    client: IRpcClient
-    context: object
-    params: object
+type ExecutorParams<Context, Params> = {
+    client: RpcClient
+    context: Context
+    params: Params
 }
 
-type InitializerFunc<Request> = (request: Request) => Promise<IInitializerFuncResult>
-type ExecutorFunc = ({client, context, params}: IExecutorParams) => Promise<object>
+type InitializerFunc<Request, Context> = (request: Request) => Promise<InitializerFuncResult<Context>>
+type ExecutorFunc<Context, Params, Result> = ({client, context, params}: ExecutorParams<Context, Params>) => Promise<Result>
 type HandlerFuncResult<Request, Response> = (request: Request, response: Response) => Promise<void>
 
-export declare class RpcServer<Request, Response> {
-    constructor (initializer: InitializerFunc<Request>)
-    handler (executor: ExecutorFunc): HandlerFuncResult<Request, Response>
-    static new<Request, Response>(initializer: InitializerFunc<Request>): RpcServer<Request, Response>
+export declare class RpcServer<Request, Response, Context, Params, Result> {
+    constructor (initializer: InitializerFunc<Request, Context>)
+    handler (executor: ExecutorFunc<Context, Params, Result>): HandlerFuncResult<Request, Response>
+    static new<Request, Response, Context, Params, Result>(initializer: InitializerFunc<Request, Context>): RpcServer<Request, Response, Context, Params, Result>
 }
