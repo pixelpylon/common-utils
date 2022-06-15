@@ -5,9 +5,9 @@ class RpcServer {
     this.initializer = initializer;
   }
 
-  async _initialize () {
+  async _initialize (request) {
     try {
-      return await this.initializer();
+      return await this.initializer(request);
     } catch (error) {
       console.error(error);
       throw error instanceof RestifiedError
@@ -49,7 +49,7 @@ class RpcServer {
     const self = this;
     return async (request, response) => {
       try {
-        const {context, clients} = await self._initialize();
+        const {context, clients} = await self._initialize(request);
         const client = await self._authorize(clients, request.headers.authorization);
         const result = await self._execute(executor, client, context, request.body);
         return response.json(result);

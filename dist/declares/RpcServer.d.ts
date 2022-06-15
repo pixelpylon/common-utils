@@ -14,7 +14,7 @@ interface IExecutorParams {
     params: object
 }
 
-type InitializerFunc = () => Promise<IInitializerFuncResult>
+type InitializerFunc = (request: object) => Promise<IInitializerFuncResult>
 type ExecutorFunc = ({client, context, params}: IExecutorParams) => Promise<object>
 type HandlerFuncResult = (request: object, response: object) => Promise<void>
 
