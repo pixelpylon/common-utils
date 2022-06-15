@@ -14,12 +14,12 @@ interface IExecutorParams {
     params: object
 }
 
-type InitializerFunc = (request: object) => Promise<IInitializerFuncResult>
+type InitializerFunc<Request> = (request: Request) => Promise<IInitializerFuncResult>
 type ExecutorFunc = ({client, context, params}: IExecutorParams) => Promise<object>
-type HandlerFuncResult = (request: object, response: object) => Promise<void>
+type HandlerFuncResult<Request, Response> = (request: Request, response: Response) => Promise<void>
 
-export declare class RpcServer {
-    constructor (initializer: InitializerFunc)
-    handler (executor: ExecutorFunc): HandlerFuncResult
-    static new (initializer: InitializerFunc): RpcServer
+export declare class RpcServer<Request, Response> {
+    constructor (initializer: InitializerFunc<Request>)
+    handler (executor: ExecutorFunc): HandlerFuncResult<Request, Response>
+    static new<Request, Response>(initializer: InitializerFunc<Request>): RpcServer<Request, Response>
 }
