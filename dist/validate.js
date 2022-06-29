@@ -1,4 +1,6 @@
 const ValidationError = require("./ValidationError");
+const {parseDateRanges} = require("./parseDateRanges");
+const {parseDuration} = require("./parseDuration");
 
 function every(...validators) {
     return (path, value) => {
@@ -124,6 +126,24 @@ function isUrl(path, value) {
     }
 }
 
+function isDateRanges(path, value) {
+    isString(path, value)
+    try {
+        parseDateRanges(value)
+    } catch (error) {
+        throw new ValidationError(path, value, 'is not a date ranges')
+    }
+}
+
+function isDuration(path, value) {
+    isString(path, value)
+    try {
+        parseDuration(value)
+    } catch (error) {
+        throw new ValidationError(path, value, 'is not a duration')
+    }
+}
+
 function isIn(list) {
     if (!Array.isArray(list)) {
         throw new Error(`Incorrect list '${JSON.stringify(list)}'`)
@@ -226,4 +246,6 @@ module.exports = {
     isEmail,
     isUrl,
     isIn,
+    isDateRanges,
+    isDuration,
 }
