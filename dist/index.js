@@ -25,14 +25,9 @@ const validate = require('./validate');
 const validateInput = require('./validateInput');
 const ValidationError = require('./ValidationError');
 const getCurrencySymbol = require('./getCurrencySymbol');
-const {
-  parseDateRanges,
-  isDateInDateRanges,
-} = require('./parseDateRanges');
-const {
-  AbstractRequestHandler,
-  handleRequest,
-} = require('./requestHandling')
+const {parseDateRanges, isDateInDateRanges} = require('./parseDateRanges');
+const {AbstractRequestHandler, handleRequest} = require('./requestHandling')
+const {parseDuration} = require('./parseDuration')
 
 module.exports = {
   delay,
@@ -67,4 +62,5 @@ module.exports = {
   handleRequest,
   getCurrencySymbol,
   retry,
+  parseDuration,
 };
