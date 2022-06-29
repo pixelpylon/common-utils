@@ -1,1 +1,1 @@
-export declare function parseDuration(string): number
+export declare function parseDuration(source: string): number
