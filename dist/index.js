@@ -28,6 +28,8 @@ const getCurrencySymbol = require('./getCurrencySymbol');
 const {parseDateRanges, isDateInDateRanges} = require('./parseDateRanges');
 const {AbstractRequestHandler, handleRequest} = require('./requestHandling')
 const {parseDuration} = require('./parseDuration')
+const pluralize = require('./pluralize')
+const formatMoney = require('./formatMoney')
 
 module.exports = {
   delay,
@@ -63,4 +65,6 @@ module.exports = {
   getCurrencySymbol,
   retry,
   parseDuration,
+  pluralize,
+  formatMoney,
 };
