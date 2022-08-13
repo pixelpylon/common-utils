@@ -117,6 +117,13 @@ function isEmail(path, value) {
     }
 }
 
+function isPhone(path, value) {
+    isString(path, value)
+    if (!value.replace(/[ -]/g, '').match(/^(\+?\d+)?(\(\d+\))?\d+$/)) {
+        throw new ValidationError(path, value, 'is not an phone')
+    }
+}
+
 function isUrl(path, value) {
     isString(path, value)
     try {
@@ -244,6 +251,7 @@ module.exports = {
     isBlank,
     isUuid,
     isEmail,
+    isPhone,
     isUrl,
     isIn,
     isDateRanges,

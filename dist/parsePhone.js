@@ -1,4 +1,6 @@
 const parsePhone = (phoneSource) => {
+
+  // TODO: remove this check
   const result = phoneSource.match(/^\w*\+[\s\d()-]+$/);
 
   if (!result) {

@@ -15,6 +15,7 @@ export declare const isString: Validator<string>
 export declare function isFormat(format: RegExp): Validator<string>
 export declare const isUuid: Validator<string>
 export declare const isEmail: Validator<string>
+export declare const isPhone: Validator<string>
 export declare const isUrl: Validator<string>
 export declare const isDefined: Validator
 export declare const isUndefined: Validator
