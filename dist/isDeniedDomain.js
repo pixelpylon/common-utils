@@ -1,6 +1,6 @@
 const isDeniedDomain = (domain, deniedDomains = []) => {
   if (!Array.isArray(deniedDomains)) {
-    throw new Error(`Incorrect denied domains '${deniedDomains}', type '${typeof deniedDomains}'`);
+    throw new Error(`Incorrect denied domains '${JSON.stringify(deniedDomains)}', type '${typeof deniedDomains}'`);
   }
 
   const dottedDomain = `.${domain}`;
