@@ -1,8 +1,5 @@
 class AbstractRequestHandler {
-  constructor(request, response) {
-    this.request = request
-    this.response = response
-  }
+  constructor() {}
 
   get context() {
     if (!this._context) {
@@ -22,9 +19,10 @@ class AbstractRequestHandler {
       const input = this.getInput()
       this.validateInput(input)
       const result = await this.getResult(input)
-      this.sendResult(result)
+      await this.onResult(result)
+      return result
     } catch (error) {
-      this.sendError(error)
+      await this.onError(error)
     }
   }
 
@@ -44,18 +42,16 @@ class AbstractRequestHandler {
     throw new Error(`Not implemented abstract method getResult()`)
   }
 
-  sendResult(result) {
-    throw new Error(`Not implemented abstract method sendResult()`)
-  }
+  onResult(result) {}
 
-  sendError(error) {
-    throw new Error(`Not implemented abstract method sendError()`)
+  onError(error) {
+    throw new Error(`Not implemented abstract method onError()`)
   }
 }
 
 const handleRequest = (HandlerConstructor) => {
-  return async (request, response) => {
-    const handler = new HandlerConstructor(request, response)
+  return async (...args) => {
+    const handler = new HandlerConstructor(...args)
     await handler.handle()
   }
 }

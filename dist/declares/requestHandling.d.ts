@@ -1,29 +1,18 @@
-export abstract class AbstractRequestHandler<TRequest, TResponse, TContext, TInput, TResult, TError> {
+export abstract class AbstractRequestHandler<TContext, TInput, TResult, TError> {
   private _context?: TContext
-  protected request: TRequest
-  protected response: TResponse
-
-  public constructor(request: TRequest, response: TResponse)
-
+  protected constructor()
   protected get context(): TContext
-
   initializeContext(): Promise<void>
-
   handle(): Promise<void>
-
   abstract getInput(): TInput
-
   abstract validateInput(input: TInput): void
-
   abstract createContext(): Promise<TContext>
-
   abstract getResult(input: TInput): Promise<TResult>
-
-  abstract sendResult(result: TResult): void
-
-  abstract sendError(error: TError): Promise<void>
+  abstract onResult(result: TResult): Promise<void>
+  abstract onError(error: TError): Promise<void>
 }
 
-export const handleRequest: <Request, Response, Handler extends AbstractRequestHandler<Request, Response, any, any, any, any>>
-(HandlerConstructor: new(request: Request, response: Response) => Handler) =>
-  (request: Request, response: Response) => Promise<void>
+export const handleRequest: <THandler extends AbstractRequestHandler<any, any, any, any>, THandleConstructorArgs extends any[]>
+(HandlerConstructor: new(...args: THandleConstructorArgs) => THandler) =>
+  (...args: THandleConstructorArgs) => Promise<void>
+
