@@ -34,6 +34,29 @@ class Repository {
     const result = await query.get();
     return DocumentAccessor.first(result);
   }
+
+  unsafe() {
+    return {
+      one: async (id) => {
+        const result = await this.one(id);
+        if (!result) {
+          throw new Error(`Can't find document`)
+        }
+      },
+      list: async (getQuery) => {
+        const result = await this.list(getQuery);
+        if (result.length === 0) {
+          throw new Error(`List is empty`)
+        }
+      },
+      first: async (getQuery) => {
+        const result = await this.first(getQuery);
+        if (result.length === 0) {
+          throw new Error(`Can't find document`)
+        }
+      }
+    }
+  }
 }
 
 module.exports = Repository;
