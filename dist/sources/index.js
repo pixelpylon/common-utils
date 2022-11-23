@@ -1,4 +1,4 @@
-const delay = require('./delay');
+const delay = require('./basic/delay');
 const arrayze = require('./basic/arrayze');
 const lazy = require('./basic/lazy');
 const retry = require('./basic/retry');
