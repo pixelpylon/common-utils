@@ -1,6 +1,6 @@
-const ValidationError = require("./ValidationError");
-const {parseDateRanges} = require("./parseDateRanges");
-const {parseDuration} = require("./parseDuration");
+const ValidationError = require("../errors/ValidationError");
+const {parseDateRanges} = require("../parseDateRanges");
+const {parseDuration} = require("../parseDuration");
 
 function every(...validators) {
     return (path, value) => {

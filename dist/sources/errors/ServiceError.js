@@ -1,5 +1,3 @@
-const verboseErrorMessage = require("./verboseErrorMessage")
-
 const normalizeArgs = (args) => {
     if (args.length === 0 || args.length > 2) {
         throw new Error('Incorrect ServiceError usage')
