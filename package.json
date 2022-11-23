@@ -3,7 +3,7 @@
   "version": "0.0.57",
   "description": "Common Utils",
   "main": "dist/index.js",
-  "typings": "dist/declares/main.d.ts",
+  "typings": "dist/declares/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +13,7 @@
   "author": "Ivan Kosolapov <polzuka@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@firebase/firestore-types": "^2.5.1",
     "axios": "^0.24.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
