@@ -1,8 +1,8 @@
 {
   "name": "common-utils",
-  "version": "0.0.57",
+  "version": "0.0.58",
   "description": "Common Utils",
-  "main": "dist/index.js",
+  "main": "dist/sources/index.js",
   "typings": "dist/declares/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

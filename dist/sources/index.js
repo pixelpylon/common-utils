@@ -1,22 +1,23 @@
 const delay = require('./delay');
 const findRecord = require('./findRecord');
-const verboseErrorMessage = require('./verboseErrorMessage');
+const verboseErrorMessage = require('./errors/verboseErrorMessage');
 const isDeniedDomain = require('./isDeniedDomain');
-const ServiceError = require('./ServiceError');
-const RestifiedError = require('./RestifiedError');
+const ServiceError = require('./errors/ServiceError');
+const RestifiedError = require('./errors/RestifiedError');
+const AxiosVerboseError = require('./errors/AxiosVerboseError');
+const ValidationError = require('./errors/ValidationError');
 const parsePhone = require('./parsePhone');
-const arrayze = require('./arrayze');
-const lazy = require('./lazy');
-const retry = require('./retry');
+const arrayze = require('./basic/arrayze');
+const lazy = require('./basic/lazy');
+const retry = require('./basic/retry');
 const isCorrectEmailAddress = require('./isCorrectEmailAddress');
 const isInvalidEmailAddress = require('./isInvalidEmailAddress');
-const validate = require('./validate');
-const validateInput = require('./validateInput');
-const ValidationError = require('./ValidationError');
+const validate = require('./validation/validate');
+const validateInput = require('./validation/validateInput');
 const getCurrencySymbol = require('./getCurrencySymbol');
 const {parseDateRanges, isDateInDateRanges} = require('./parseDateRanges');
 const {parseDuration} = require('./parseDuration')
-const pluralize = require('./pluralize')
+const pluralize = require('./basic/pluralize')
 const formatMoney = require('./formatMoney')
 
 module.exports = {
@@ -25,6 +26,8 @@ module.exports = {
   verboseErrorMessage,
   ServiceError,
   RestifiedError,
+  AxiosVerboseError,
+  ValidationError,
   isDeniedDomain,
   parsePhone,
   arrayze,
@@ -35,7 +38,6 @@ module.exports = {
   isDateInDateRanges,
   validate,
   validateInput,
-  ValidationError,
   getCurrencySymbol,
   retry,
   parseDuration,

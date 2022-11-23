@@ -1,5 +1,5 @@
 const originalParseDuration = require('parse-duration')
-const ServiceError = require("./ServiceError");
+const ServiceError = require("./errors/ServiceError");
 
 const parseDuration = (source) => {
     const result = originalParseDuration(source)
