@@ -1,6 +1,6 @@
 {
   "name": "common-utils",
-  "version": "0.0.61",
+  "version": "0.0.62",
   "description": "Common Utils",
   "main": "dist/sources/index.js",
   "typings": "dist/declares/index.d.ts",
