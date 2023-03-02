@@ -1,9 +1,9 @@
 const ServiceError = require("./ServiceError");
-const formatAxiosResponse = require("../formatAxiosResponse");
+const formatAxiosResponse = require("../formatAxiosRequest");
 const {get} = require("lodash");
 
 const formatErrorMessage = (error) => {
-    return `${error.message}\n${formatAxiosResponse(error.response)}`
+    return `${error.message}\n${formatAxiosResponse(error.config, error.response)}`
 }
 
 class AxiosVerboseError extends ServiceError {
