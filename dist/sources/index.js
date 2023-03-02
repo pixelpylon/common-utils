@@ -4,7 +4,8 @@ const lazy = require('./basic/lazy');
 const retry = require('./basic/retry');
 const pluralize = require('./basic/pluralize')
 const findRecord = require('./findRecord');
-const verboseErrorMessage = require('./errors/verboseErrorMessage');
+const verboseErrorMessage = require('./verboseErrorMessage');
+const formatAxiosResponse = require('./formatAxiosResponse');
 const isDeniedDomain = require('./isDeniedDomain');
 const ServiceError = require('./errors/ServiceError');
 const RestifiedError = require('./errors/RestifiedError');
@@ -24,6 +25,7 @@ module.exports = {
   delay,
   findRecord,
   verboseErrorMessage,
+  formatAxiosResponse,
   ServiceError,
   RestifiedError,
   AxiosVerboseError,
