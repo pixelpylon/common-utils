@@ -1,4 +1,5 @@
-const {isArray, isObject} = require('lodash');
+const {isArray} = require('lodash/isArray');
+const {isObject} = require('lodash/isObject');
 
 const findItem = (items, key, value) => {
   if (!isArray(items)) {
