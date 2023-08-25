@@ -51,3 +51,7 @@ export type DbData<Entity> = Entity & {
 export type EntityListResponse<Entity> = DbData<Entity>[]
 
 export type EntityItemResponse<Entity> = DbData<Entity>
+
+export type EntityUpdateParams<Entity> = Partial<Entity> & {
+  id: string
+}
