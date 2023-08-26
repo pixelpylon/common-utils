@@ -33,9 +33,9 @@ type Field<FilteredType> = keyof Partial<FilteredType> | string
 
 type Filter = FilterValue | FilterValue[] | NumberFilter | StringFilter | BooleanFilter | ListFilter
 
-type Filters<FilteredType> = {field: Field<FilteredType>, filter: Filter}[]
+type Filters<FilteredType> = {field: Field<FilteredType>, value: Filter}[]
 
-type Ordering<FilteredType> = {field: Field<FilteredType>, direction: 'asc' | 'desc'}[]
+type Ordering<FilteredType> = ({field: Field<FilteredType>, direction?: 'asc' | 'desc'} | Field<FilteredType>)[]
 
 export type BaseListParams<FilteredType> = {
   page?: number
