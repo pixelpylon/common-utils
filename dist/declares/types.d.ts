@@ -29,17 +29,23 @@ type ListFilter = {
   op: 'in'
 }
 
+type Field<FilteredType> = keyof Partial<FilteredType> | string
+
 type Filter = FilterValue | FilterValue[] | NumberFilter | StringFilter | BooleanFilter | ListFilter
 
-type Filters<FilteredType> = {[key in keyof Partial<FilteredType> | string]: Filter}
+type Filters<FilteredType> = {field: Field<FilteredType>, filter: Filter}[]
+
+type Ordering<FilteredType> = {field: Field<FilteredType>, direction: 'asc' | 'desc'}[]
 
 export type BaseListParams<FilteredType> = {
   page?: number
   limit?: number
   filters?: Filters<FilteredType>
+  ordering?: Ordering<FilteredType>
 }
 
 export type EntityFilters<Entity> = Filters<DbData<Entity>>
+export type EntityOrdering<Entity> = Ordering<DbData<Entity>>
 export type EntityListParams<Entity> = BaseListParams<DbData<Entity>>
 
 export type DbData<Entity> = Entity & {
