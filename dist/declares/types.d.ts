@@ -1,11 +1,9 @@
-type Permissions<Role, Permission> = Record<keyof Role, Permission>
-
-export type User<Role, Permission> = {
+export type User = {
   id: string
   name: string
   email: string
   locations: string[]
-  permissions: Permissions<Role, Permission>
+  permissions: Record<string, string[]>
 }
 
 type FilterValue = string | number | boolean
