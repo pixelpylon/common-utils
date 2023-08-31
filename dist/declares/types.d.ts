@@ -1,25 +1,27 @@
+export type ServicePermissions = Record<string, string[]>
+
 export type User = {
   id: string
   name: string
   email: string
   locations: string[]
-  permissions: Record<string, string[]>
+  permissions: ServicePermissions
 }
 
 type FilterValue = string | number | boolean
 type NumberFilter = {
   value: number
-  op: 'eq' | 'ge' | 'le'
+  op: '<' | '<=' | '>' | '>=' | '!='
 }
 
 type StringFilter = {
   value: string
-  op: 'eq'
+  op: '!='
 }
 
 type BooleanFilter = {
-  value: string | number
-  op: 'is'
+  value: boolean
+  op: '!='
 }
 
 type ListFilter = {
