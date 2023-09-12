@@ -1,5 +1,5 @@
-const {get} = require("lodash/get");
-const {upperCase} = require("lodash/upperCase");
+const get = require("lodash/get");
+const upperCase = require("lodash/upperCase");
 
 const formatAxiosRequest = (config, response) => {
     const method = get(config, 'method', '[unknown method]')

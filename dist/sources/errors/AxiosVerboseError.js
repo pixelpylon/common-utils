@@ -1,7 +1,7 @@
 const ServiceError = require("./ServiceError");
 // FIX MY NAME
 const formatAxiosResponse = require("../formatAxiosRequest");
-const {get} = require("lodash/get");
+const get = require("lodash/get");
 
 const formatErrorMessage = (error) => {
     return `${error.message}\n${formatAxiosResponse(error.config, error.response)}`
