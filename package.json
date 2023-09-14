@@ -1,11 +1,11 @@
 {
-  "name": "common-utils",
+  "name": "@exp1/common-utils",
   "version": "0.0.73",
   "description": "Common Utils",
   "main": "dist/sources/index.js",
   "typings": "dist/declares/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "artifactregistry-login": "npx google-artifactregistry-auth"
   },
   "engines": {
     "node": ">=12"
