@@ -25,6 +25,7 @@ export declare const isBlank: Validator<string>
 export declare const isObject: Validator<Object>
 export declare const isArray: Validator
 export declare const isValid: Validator
+export declare function isEqual(value: any): Validator
 export declare const isDateRanges: Validator<string>
 export declare const isDuration: Validator<string>
 export declare function isIn(list: any[]): Validator
