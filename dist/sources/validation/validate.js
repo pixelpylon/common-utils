@@ -11,14 +11,17 @@ function every(...validators) {
 }
 
 function some(...validators) {
+    const errors = []
     return (path, value) => {
         for (const validator of validators) {
             try {
                 validator(path, value)
                 return
-            } catch (error) {}
+            } catch (error) {
+                errors.push(error.message)
+            }
         }
-        throw new ValidationError(path, value, 'is failed all validators')
+        throw new ValidationError(path, value, 'is failed all validators:\n' + errors.map((error) => `- ${error}`).join('\n'))
     }
 }
 
@@ -28,6 +31,14 @@ function valid() {
 function isString(path, value) {
     if (typeof value !== 'string') {
         throw new ValidationError(path, value, 'is not a string')
+    }
+}
+
+function isEqual(anotherValue) {
+    return (path, value) => {
+        if (value !== anotherValue) {
+            throw new ValidationError(path, value, `doesn't equal to '${anotherValue}' (${typeof anotherValue})`)
+        }
     }
 }
 
@@ -256,4 +267,5 @@ module.exports = {
     isIn,
     isDateRanges,
     isDuration,
+    isEqual,
 }
