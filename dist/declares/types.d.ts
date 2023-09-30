@@ -36,10 +36,13 @@ type Filters = {field: string, value: Filter}[]
 type Ordering = ({field: string, direction?: 'asc' | 'desc'} | string)[]
 
 export type ListParams = {
-  cursor?: string | null
   limit?: number | null
   filters?: Filters | null
   ordering?: Ordering | null
+}
+
+export type PaginatedListParams = ListParams & {
+  cursor?: string | null
 }
 
 export type DbData<Entity> = Entity & {
@@ -50,7 +53,9 @@ export type DbData<Entity> = Entity & {
 
 export type EntityItemResponse<Entity> = DbData<Entity>
 
-export type EntityListResponse<Entity> = {
+export type EntityListResponse<Entity> = EntityItemResponse<Entity>[]
+
+export type EntityPaginatedListResponse<Entity> = {
   list: EntityItemResponse<Entity>[]
   nextCursor?: string
 }
