@@ -1,9 +1,12 @@
 export type ServicePermissions = Record<string, string[]>
 
-export type User = {
+export type BasicUserInfo = {
   id: string
   name: string
   email: string
+}
+
+export type User = BasicUserInfo & {
   locations: string[]
   permissions: ServicePermissions
 }
