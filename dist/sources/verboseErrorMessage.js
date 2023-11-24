@@ -1,4 +1,4 @@
-const {get} = require('lodash/get');
+const get = require('lodash/get');
 
 const verboseErrorMessage = (from, error, fieldPath = 'response.body') => {
   const body = get(error, fieldPath);
