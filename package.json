@@ -1,6 +1,6 @@
 {
   "name": "@exp1/common-utils",
-  "version": "0.0.81",
+  "version": "0.0.82",
   "description": "Common Utils",
   "main": "dist/sources/index.js",
   "typings": "dist/declares/index.d.ts",

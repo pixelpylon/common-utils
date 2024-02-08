@@ -11,20 +11,22 @@ export type User = BasicUserInfo & {
   permissions: ServicePermissions
 }
 
+type PrimitiveValueOperation = '<' | '<=' | '>' | '>=' | '!=' | '=='
+
 type FilterValue = string | number | boolean
 type NumberFilter = {
   value: number
-  op: '<' | '<=' | '>' | '>=' | '!='
+  op: PrimitiveValueOperation
 }
 
 type StringFilter = {
   value: string
-  op: '!='
+  op: PrimitiveValueOperation
 }
 
 type BooleanFilter = {
   value: boolean
-  op: '!='
+  op: PrimitiveValueOperation
 }
 
 type ListFilter = {
@@ -48,18 +50,22 @@ export type PaginatedListParams = ListParams & {
   cursor?: string | null
 }
 
-export type DbData<Entity> = Entity & {
+export type Stored<Entity> = Entity & {
   id: string
   createdAt: string
   modifiedAt?: string
 }
 
-export type EntityItemResponse<Entity> = DbData<Entity>
+export type Eternal<Entity> = Entity & {
+  isDeleted: boolean
+}
 
-export type EntityListResponse<Entity> = EntityItemResponse<Entity>[]
+export type EntityItemResponse<Entity> = Stored<Entity>
+
+export type EntityListResponse<Entity> = Stored<Entity>[]
 
 export type EntityPaginatedListResponse<Entity> = {
-  list: EntityItemResponse<Entity>[]
+  list: Stored<Entity>[]
   nextCursor?: string
 }
 
