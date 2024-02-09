@@ -36,7 +36,7 @@ type ListFilter = {
 
 type Filter = FilterValue | FilterValue[] | NumberFilter | StringFilter | BooleanFilter | ListFilter
 
-type Filters = {field: string, value: Filter}[]
+type Filters = ({field: string, value: Filter} | undefined | null)[]
 
 type Ordering = ({field: string, direction?: 'asc' | 'desc'} | string)[]
 
