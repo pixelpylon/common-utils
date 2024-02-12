@@ -11,7 +11,8 @@ export type User = BasicUserInfo & {
   permissions: ServicePermissions
 }
 
-type PrimitiveValueOperation = '<' | '<=' | '>' | '>=' | '!=' | '=='
+type PrimitiveValueOperation = '<' | '<=' | '>' | '>=' | '!=' | '==' | 'array-contains'
+type ListValueOperation = 'in' | 'not-in' | 'array-contains-any'
 
 type FilterValue = string | number | boolean
 type NumberFilter = {
@@ -31,7 +32,7 @@ type BooleanFilter = {
 
 type ListFilter = {
   value: FilterValue[]
-  op: 'in'
+  op: ListValueOperation
 }
 
 type Filter = FilterValue | FilterValue[] | NumberFilter | StringFilter | BooleanFilter | ListFilter
