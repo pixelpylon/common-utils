@@ -11,43 +11,30 @@ export type User = BasicUserInfo & {
   permissions: ServicePermissions
 }
 
-type PrimitiveValueOperation = '<' | '<=' | '>' | '>=' | '!=' | '==' | 'array-contains'
-type ListValueOperation = 'in' | 'not-in' | 'array-contains-any'
+type PrimitiveFilterValue = string | number | boolean
+type ListFilterValue = PrimitiveFilterValue[]
+type FilterValue = PrimitiveFilterValue | ListFilterValue
 
-type FilterValue = string | number | boolean
-type NumberFilter = {
-  value: number
-  op: PrimitiveValueOperation
-}
+type Filter = {field: string, value: FilterValue, op?: string} | undefined | null
+type Ordering = {field: string, direction?: 'asc' | 'desc'} | string
 
-type StringFilter = {
-  value: string
-  op: PrimitiveValueOperation
-}
-
-type BooleanFilter = {
-  value: boolean
-  op: PrimitiveValueOperation
-}
-
-type ListFilter = {
-  value: FilterValue[]
-  op: ListValueOperation
-}
-
-type Filter = FilterValue | FilterValue[] | NumberFilter | StringFilter | BooleanFilter | ListFilter
-
-type Filters = ({field: string, value: Filter} | undefined | null)[]
-
-type Ordering = ({field: string, direction?: 'asc' | 'desc'} | string)[]
-
-export type ListParams = {
+export type QueryParams = {
+  filters?: Filter[] | null
+  ordering?: Ordering[] | null
   limit?: number | null
-  filters?: Filters | null
-  ordering?: Ordering | null
 }
 
-export type PaginatedListParams = ListParams & {
+export type ListParams = QueryParams & {
+  views?: QueryParams[] | null
+  parallel?: Filter[] | null
+}
+
+export type FirstParams = Omit<QueryParams, 'limit'> & {
+  views?: QueryParams[] | null
+  parallel?: Filter[] | null
+}
+
+export type PaginatedListParams = QueryParams & {
   cursor?: string | null
 }
 
