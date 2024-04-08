@@ -54,13 +54,19 @@ function isFormat(format) {
 function isIntString(path, value) {
     isString(path, value)
     if (!value.match(/\d+/)) {
-        throw new ValidationError(path, value, 'is not an integer')
+        throw new ValidationError(path, value, 'is not an integer string')
     }
 }
 
 function isInt(path, value) {
-    if (typeof value !== 'number') {
+    if (!Number.isInteger(value)) {
         throw new ValidationError(path, value, 'is not an integer')
+    }
+}
+
+function isNumber(path, value) {
+    if (typeof value !== 'number') {
+        throw new ValidationError(path, value, 'is not a number')
     }
 }
 
@@ -252,6 +258,7 @@ module.exports = {
     isString,
     isIntString,
     isInt,
+    isNumber,
     isBoolean,
     isArray,
     isObject,
