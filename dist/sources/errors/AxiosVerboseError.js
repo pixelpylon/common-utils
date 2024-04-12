@@ -1,18 +1,18 @@
-const ServiceError = require("./ServiceError");
-// FIX MY NAME
-const formatAxiosResponse = require("../formatAxiosRequest");
-const get = require("lodash/get");
+const ServiceError = require('./ServiceError')
+const formatAxiosRequest = require('../formatAxiosRequest')
+const get = require('lodash/get')
 
 const formatErrorMessage = (error) => {
-    return `${error.message}\n${formatAxiosResponse(error.config, error.response)}`
+  return `${error.message}\n${formatAxiosRequest(error.config, error.response)}`
 }
 
 class AxiosVerboseError extends ServiceError {
-    constructor(error) {
-        super({})
-        this.message = formatErrorMessage(error)
-        this.data = get(error, 'response.data')
-    }
+  constructor(error) {
+    super({})
+    this.message = formatErrorMessage(error)
+    this.data = get(error, 'response.data')
+    this.code = get(error, 'response.status')
+  }
 }
 
 module.exports = AxiosVerboseError

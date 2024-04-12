@@ -15,8 +15,8 @@ type PrimitiveFilterValue = string | number | boolean
 type ListFilterValue = PrimitiveFilterValue[]
 type FilterValue = PrimitiveFilterValue | ListFilterValue
 
-type Filter = {field: string, value: FilterValue, op?: string} | undefined | null
-type Ordering = {field: string, direction?: 'asc' | 'desc'} | string
+type Filter = {field: string; value: FilterValue; op?: string} | undefined | null
+type Ordering = {field: string; direction?: 'asc' | 'desc'} | string
 
 export type QueryParams = {
   filters?: Filter[] | null

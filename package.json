@@ -1,10 +1,11 @@
 {
   "name": "@exp1/common-utils",
-  "version": "0.0.86",
+  "version": "0.0.87",
   "description": "Common Utils",
   "main": "dist/sources/index.js",
   "typings": "dist/declares/index.d.ts",
   "scripts": {
+    "prepare": "husky install",
     "artifactregistry-login": "npx google-artifactregistry-auth"
   },
   "engines": {
@@ -16,5 +17,27 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "parse-duration": "^1.0.2"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.28.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-require-path-exists": "^1.1.9",
+    "firebase-admin": "^12.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0",
+    "mocha": "^10.0.0",
+    "prettier": "2.8.0",
+    "typescript": "^4.9.3"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

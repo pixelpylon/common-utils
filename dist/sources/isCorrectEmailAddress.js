@@ -1,8 +1,8 @@
 const isCorrectEmailAddress = (email) => {
   if (!email) {
-    return false;
+    return false
   }
-  return email.match(/[^@]+@([^@.]+\.)+[^@.]+/);
-};
+  return email.match(/[^@]+@([^@.]+\.)+[^@.]+/)
+}
 
-module.exports = isCorrectEmailAddress;
+module.exports = isCorrectEmailAddress

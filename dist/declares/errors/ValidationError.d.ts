@@ -1,5 +1,6 @@
-import {ServiceError} from "./ServiceError"
+import {ServiceError} from './ServiceError'
 
 export declare class ValidationError extends ServiceError {
-    constructor (path: string, value: any, message: string)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  constructor(path: string, value: any, message: string)
 }

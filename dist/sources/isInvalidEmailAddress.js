@@ -1,18 +1,18 @@
-const isDeniedDomain = require("./isDeniedDomain");
-const isCorrectEmailAddress = require("./isCorrectEmailAddress");
+const isDeniedDomain = require('./isDeniedDomain')
+const isCorrectEmailAddress = require('./isCorrectEmailAddress')
 
 const isInvalidEmailAddress = (email, deniedDomains) => {
   if (!isCorrectEmailAddress(email)) {
-    return `Incorrect email format '${email}'`;
+    return `Incorrect email format '${email}'`
   }
 
-  const domain = email.split('@')[1];
+  const domain = email.split('@')[1]
 
   if (isDeniedDomain(domain, deniedDomains)) {
-    return `Domain '${domain}' is denied`;
+    return `Domain '${domain}' is denied`
   }
 
-  return '';
-};
+  return ''
+}
 
-module.exports = isInvalidEmailAddress;
+module.exports = isInvalidEmailAddress

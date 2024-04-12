@@ -1,5 +1,5 @@
 interface IOptions {
-  allowRetry?: (error: any) => boolean,
+  allowRetry?: (error: any) => boolean
   maxAttempts?: number
   delayMs?: number
 }

@@ -1,4 +1,4 @@
-const moment = require("moment")
+const moment = require('moment')
 
 const parseDateRange = (source) => {
   const parts = source.split(':')
@@ -22,9 +22,7 @@ const parseDateRange = (source) => {
 }
 
 const parseDateRanges = (source) => {
-  return source
-      ? source.split(',').map(parseDateRange)
-      : []
+  return source ? source.split(',').map(parseDateRange) : []
 }
 
 const isDateInDateRanges = (date, source) => {
@@ -35,4 +33,4 @@ const isDateInDateRanges = (date, source) => {
 module.exports = {
   parseDateRanges,
   isDateInDateRanges,
-};
+}
