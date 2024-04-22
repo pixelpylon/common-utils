@@ -1,4 +1,4 @@
-const ServiceError = require('./ServiceError')
+const {ServiceError} = require('./ServiceError')
 
 class RestifiedError extends ServiceError {
   constructor(message, code = 500) {
@@ -6,4 +6,4 @@ class RestifiedError extends ServiceError {
   }
 }
 
-module.exports = RestifiedError
+module.exports = {RestifiedError}

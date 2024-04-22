@@ -1,4 +1,4 @@
-const ServiceError = require('./ServiceError')
+const {ServiceError} = require('./ServiceError')
 
 class ValidationError extends ServiceError {
   constructor(path, value, message) {
@@ -6,4 +6,4 @@ class ValidationError extends ServiceError {
   }
 }
 
-module.exports = ValidationError
+module.exports = {ValidationError}

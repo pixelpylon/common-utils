@@ -1,5 +1,5 @@
-const isDeniedDomain = require('./isDeniedDomain')
-const isCorrectEmailAddress = require('./isCorrectEmailAddress')
+const {isDeniedDomain} = require('./isDeniedDomain')
+const {isCorrectEmailAddress} = require('./isCorrectEmailAddress')
 
 const isInvalidEmailAddress = (email, deniedDomains) => {
   if (!isCorrectEmailAddress(email)) {
@@ -15,4 +15,4 @@ const isInvalidEmailAddress = (email, deniedDomains) => {
   return ''
 }
 
-module.exports = isInvalidEmailAddress
+module.exports = {isInvalidEmailAddress}

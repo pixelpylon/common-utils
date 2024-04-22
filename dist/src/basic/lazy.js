@@ -15,4 +15,4 @@ function lazy(loader) {
   }
 }
 
-module.exports = lazy
+module.exports = {lazy}

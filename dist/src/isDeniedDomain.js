@@ -14,4 +14,4 @@ const isDeniedDomain = (domain, deniedDomains = []) => {
   return false
 }
 
-module.exports = isDeniedDomain
+module.exports = {isDeniedDomain}

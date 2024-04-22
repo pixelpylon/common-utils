@@ -17,4 +17,4 @@ const formatAxiosRequest = (config, response) => {
     .join('\n')
 }
 
-module.exports = formatAxiosRequest
+module.exports = {formatAxiosRequest}

@@ -1,5 +1,5 @@
-const ServiceError = require('./ServiceError')
-const formatAxiosRequest = require('../formatAxiosRequest')
+const {ServiceError} = require('./ServiceError')
+const {formatAxiosRequest} = require('../formatAxiosRequest')
 const get = require('lodash/get')
 
 const formatErrorMessage = (error) => {
@@ -15,4 +15,4 @@ class AxiosVerboseError extends ServiceError {
   }
 }
 
-module.exports = AxiosVerboseError
+module.exports = {AxiosVerboseError}

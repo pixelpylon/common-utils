@@ -9,4 +9,4 @@ const parsePhone = (phoneSource) => {
   return result[0].replace(/[^\d+]/gi, '')
 }
 
-module.exports = parsePhone
+module.exports = {parsePhone}

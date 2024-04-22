@@ -5,4 +5,4 @@ const isCorrectEmailAddress = (email) => {
   return email.match(/[^@]+@([^@.]+\.)+[^@.]+/)
 }
 
-module.exports = isCorrectEmailAddress
+module.exports = {isCorrectEmailAddress}

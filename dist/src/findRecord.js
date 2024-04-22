@@ -31,4 +31,4 @@ const findRecord = (...args) => {
   throw new Error(`Incorrect using of findRecord()`)
 }
 
-module.exports = findRecord
+module.exports = {findRecord}

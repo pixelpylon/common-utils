@@ -9,4 +9,4 @@ const getCurrencySymbol = (currency) => {
   }
 }
 
-module.exports = getCurrencySymbol
+module.exports = {getCurrencySymbol}

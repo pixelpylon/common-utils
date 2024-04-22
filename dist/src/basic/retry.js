@@ -1,4 +1,4 @@
-const delay = require('./delay')
+const {delay} = require('./delay')
 
 const retry = async (action, options) => {
   const {allowRetry = () => true, maxAttempts = 3, delayMs = 200} = options || {}
@@ -23,4 +23,4 @@ const retry = async (action, options) => {
   }
 }
 
-module.exports = retry
+module.exports = {retry}

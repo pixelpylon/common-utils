@@ -8,4 +8,4 @@ const verboseErrorMessage = (from, error, fieldPath = 'response.body') => {
   return `${firstRow}${secondRow}`
 }
 
-module.exports = verboseErrorMessage
+module.exports = {verboseErrorMessage}
